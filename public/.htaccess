@@ -1,4 +1,9 @@
 <IfModule mod_rewrite.c>
+
+    AuthType Basic
+    AuthName "Restricted Area"
+    AuthUserFile /www/wwwroot/quote.xingwei-tech.com/.htpasswd
+    Require valid-user
     Options +FollowSymlinks -Multiviews
     RewriteEngine On
 
