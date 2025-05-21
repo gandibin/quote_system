@@ -1,6 +1,6 @@
 <?php
 
-echo "how are you today, Jim? xx";
+echo "how are you today, Jim? xxx";
 
 
 ?>
