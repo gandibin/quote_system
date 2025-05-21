@@ -75,7 +75,7 @@
     document.getElementById('spec_sheet_file').addEventListener('change', function () {
         var fileInput = this;
         var formData = new FormData();
-        formData.append('file', fileInput.files[0]);
+        formData.append('spec_sheet', fileInput.files[0]);
     
         fetch('/product/uploadSpecSheet', {
             method: 'POST',
