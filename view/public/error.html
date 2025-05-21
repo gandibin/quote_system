@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>操作失败</title>
+  <meta http-equiv="refresh" content="3;url={$redirect_url}">
+  <style>
+    body { text-align: center; padding-top: 100px; font-family: Arial; background-color: #fff0f0; }
+    .msg { font-size: 24px; color: red; font-weight: bold; }
+    .redirect { margin-top: 20px; color: #555; }
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="msg">❌ {$message}</div>
+  <div class="redirect">3秒后自动跳转，如果没有跳转，请 <a href="{$redirect_url}">点此返回</a></div>
+</body>
+</html>

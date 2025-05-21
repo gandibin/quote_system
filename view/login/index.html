@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>系统登录</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100 bg-light">
+    <div class="card shadow p-4" style="width: 400px;">
+        <h4 class="mb-3 text-center">管理员登录</h4>
+        <?php if(session('thinkphp.view.with.error')): ?>
+<div class="alert alert-danger">
+    <?php echo session('thinkphp.view.with.error'); ?>
+</div>
+<?php endif; ?>
+        <form method="post" action="/login/check">
+            <div class="mb-3">
+                <label class="form-label">用户名</label>
+                <input type="text" class="form-control" name="username" required value="admin">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">密码</label>
+                <input type="password" class="form-control" name="password" required value="123456">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">登录</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>规格书上传测试</title>
+</head>
+<body>
+    <h2>规格书上传测试</h2>
+    <form action="/upload/test" method="post" enctype="multipart/form-data">
+        <label>选择 Excel 文件：</label>
+        <input type="file" name="spec_sheet" accept=".xls,.xlsx" required />
+        <br><br>
+        <button type="submit">上传</button>
+    </form>
+</body>
+</html>

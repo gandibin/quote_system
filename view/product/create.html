@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>添加产品</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    form { max-width: 500px; margin: auto; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input[type="text"], textarea, select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-top: 5px;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #007bff;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-link" href="/product">← 返回产品列表</a>
+  <h2>添加产品</h2>
+
+  <form method="post" action="/product/save.html">
+    <label>名称</label>
+    <input type="text" name="name" required>
+
+    <label>描述</label>
+    <textarea name="description"></textarea>
+
+    <label>价格</label>
+    <input type="text" name="price" value="0" required>
+
+    <label>类型</label>
+    <select name="type">
+      {volist name="types" id="type"}
+        <option value="{$type}">{$type}</option>
+      {/volist}
+    </select>
+
+    <label>单位</label>
+    <input type="text" name="unit" value="PCS">
+
+    <label>备注</label>
+    <input type="text" name="remark">
+    <div>
+      <label for="spec_sheet">规格书上传（Excel）:</label>
+      <input type="file" id="spec_sheet_file" />
+      <input type="hidden" name="spec_sheet" id="spec_sheet" />
+      <span id="upload_status"></span>
+  </div>
+    <button type="submit" class="btn">保存</button>
+  </form>
+  <script>
+    document.getElementById('spec_sheet_file').addEventListener('change', function () {
+        var fileInput = this;
+        var formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+    
+        fetch('/product/uploadSpecSheet', {
+            method: 'POST',
+            body: formData
+        }).then(res => res.json())
+          .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('spec_sheet').value = data.path;
+                document.getElementById('upload_status').innerText = '上传成功';
+            } else {
+                document.getElementById('upload_status').innerText = '上传失败：' + data.message;
+            }
+        }).catch(() => {
+            document.getElementById('upload_status').innerText = '上传出错';
+        });
+    });
+    </script>
+</body>
+</html>

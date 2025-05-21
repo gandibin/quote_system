@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>编辑客户</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.06);
+            max-width: 700px;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container form-container">
+        <h2 class="mb-4">编辑客户</h2>
+        <form method="post" action="/client/update?id={$client.id}">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">客户名称</label>
+                    <input type="text" class="form-control" name="name" value="{$client.name}" required>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">联系人</label>
+                    <input type="text" class="form-control" name="contact" value="{$client.contact}">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">电话</label>
+                    <input type="text" class="form-control" name="phone" value="{$client.phone}">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">国家</label>
+                    <input type="text" class="form-control" name="country" value="{$client.country}">
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label">地址</label>
+                    <input type="text" class="form-control" name="address" value="{$client.address}">
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label">税号</label>
+                    <input type="text" class="form-control" name="tax_id" value="{$client.tax_id}">
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label">邮箱</label>
+                    <input type="text" class="form-control" name="email" value="{$client.email}">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="/client/" class="btn btn-secondary">返回列表</a>
+                <button type="submit" class="btn btn-success">保存修改</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
