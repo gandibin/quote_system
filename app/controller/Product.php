@@ -85,29 +85,26 @@ class Product
         return redirect('/product');
     }
 
+
     // 文件上传处理
     public function uploadSpecSheet(Request $request)
     {
-        // 打日志验证是否触发
-        file_put_contents('upload.log', "触发上传方法 at " . date('Y-m-d H:i:s') . PHP_EOL, FILE_APPEND);
-
-        // 获取上传的文件对象
         $file = $request->file('spec_sheet');
 
         if (!$file) {
             return view('public/error', [
                 'message' => '未选择文件！',
-                'redirect_url' => url('/product')  // 可自定义跳转页面
+                'redirect_url' => url('/product')
             ]);
         }
 
-        // 移动到指定目录
-        $savename = \think\facade\Filesystem::putFile('uploads/spec_sheet', $file);
+        // 直接移动文件到指定目录，并保留原文件名
+        $savename = $file->move(public_path() . 'uploads/spec_sheet');
 
         if ($savename) {
             return view('public/success', [
                 'message' => '上传成功！',
-                'redirect_url' => url('/product')  // 上传成功后跳转
+                'redirect_url' => url('/product')
             ]);
         } else {
             return view('public/error', [
@@ -116,6 +113,7 @@ class Product
             ]);
         }
     }
+
 
     
 
