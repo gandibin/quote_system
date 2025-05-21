@@ -88,10 +88,35 @@ class Product
     // 文件上传处理
     public function uploadSpecSheet(Request $request)
     {
+        // 打日志验证是否触发
         file_put_contents('upload.log', "触发上传方法 at " . date('Y-m-d H:i:s') . PHP_EOL, FILE_APPEND);
-        die('upload method called');
+
+        // 获取上传的文件对象
+        $file = $request->file('spec_sheet');
+
+        if (!$file) {
+            return view('public/error', [
+                'message' => '未选择文件！',
+                'redirect_url' => url('/product')  // 可自定义跳转页面
+            ]);
+        }
+
+        // 移动到指定目录
+        $savename = \think\facade\Filesystem::putFile('uploads/spec_sheet', $file);
+
+        if ($savename) {
+            return view('public/success', [
+                'message' => '上传成功！',
+                'redirect_url' => url('/product')  // 上传成功后跳转
+            ]);
+        } else {
+            return view('public/error', [
+                'message' => '上传失败，请重试！',
+                'redirect_url' => url('/product')
+            ]);
+        }
     }
-    
+
     
 
 }

@@ -2,6 +2,7 @@
 runtime/
 vendor/
 .env
+config/database.php
 .htpasswd
 
 # 日志文件
@@ -16,9 +17,7 @@ log.txt
 public/uploads/
 
 
-#数据库配置文件
-config/database.php
-*database.php
+
 # 缓存/Session等临时文件
 *.cache
 *.session
