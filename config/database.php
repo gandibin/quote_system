@@ -26,11 +26,11 @@ return [
             // 服务器地址
             'hostname'        => env('DB_HOST', '127.0.0.1'),
             // 数据库名
-            'database'        => env('DB_NAME', 'quote_system'),
+            'database'        => env('DB_NAME', 'quotesystem'),
             // 用户名
-            'username'        => env('DB_USER', 'quote_system'),
+            'username'        => env('DB_USER', 'quotesystem'),
             // 密码
-            'password'        => env('DB_PASS', '123456'),
+            'password'        => env('DB_PASS', 'RJZbt8bFBsPHmHnn'),
             // 端口
             'hostport'        => env('DB_PORT', '3306'),
             // 数据库连接参数
