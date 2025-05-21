@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
 
+
     AuthType Basic
     AuthName "Restricted Area"
     AuthUserFile /www/wwwroot/quote.xingwei-tech.com/.htpasswd
@@ -13,4 +14,10 @@
 
     # 所有其他请求都重写为 index.php 入口文件
     RewriteRule ^(.*)$ index.php?s=$1 [QSA,PT,L]
+    
+    <Files "autodeploy_8967.php">
+    Satisfy Any
+    Allow from all
+    </Files>
+    
 </IfModule>
