@@ -16,6 +16,9 @@ log.txt
 # 上传目录（如有上传功能）
 public/uploads/
 
+
+#数据库配置文件
+config/database.php
 # 缓存/Session等临时文件
 *.cache
 *.session
