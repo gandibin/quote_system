@@ -104,7 +104,12 @@ class Product
     
         try {
             // 尝试保存到 uploads/spec_sheet 目录
-            $savename = $file->move(public_path() . 'uploads/spec_sheet');
+            // 获取原始文件名
+            $originalName = $file->getOriginalName();
+
+            // 保存到指定目录并使用原名
+            $savename = $file->move(public_path() . 'uploads/spec_sheet', $originalName);
+
     
             if ($savename) {
                 return view('public/success', [
