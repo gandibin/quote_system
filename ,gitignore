@@ -1,0 +1,26 @@
+# ThinkPHP 系统目录忽略规则
+runtime/
+vendor/
+.env
+.htaccess
+.htpasswd
+
+# 日志文件
+*.log
+log.txt
+
+# IDE 配置文件
+.idea/
+.vscode/
+
+# 上传目录（如有上传功能）
+public/uploads/
+
+# 缓存/Session等临时文件
+*.cache
+*.session
+
+# Windows/Mac/Linux 临时文件
+Thumbs.db
+.DS_Store
+*.swp
