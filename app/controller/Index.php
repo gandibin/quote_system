@@ -15,7 +15,7 @@ class Index extends BaseController
 
         $client_count = Client::count();
         $product_count = Product::count();
-        $quote_count = Quote::count();
+        $quote_count = Quotation::count();
 
         return view('index/index', [
             'client_count' => $client_count,
