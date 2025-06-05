@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>报价系统后台首页</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #34495e;
+        }
+        .main {
+            margin-left: 200px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 6px #ccc;
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 style="text-align: center;">报价系统</h2>
+    <a href="{:url('index/index')}">首页总览</a>
+    <a href="{:url('client/index')}">客户管理</a>
+    <a href="{:url('product/index')}">产品管理</a>
+    <a href="{:url('quote/index')}">报价管理</a>
+</div>
+
+<div class="main">
+    <div class="card">
+        <h2>系统概览</h2>
+        <p>客户总数：{$client_count}</p>
+        <p>产品总数：{$product_count}</p>
+        <p>报价单总数：{$quote_count}</p>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <h2>快捷操作</h2>
+        <ul>
+            <li><a href="{:url('client/add')}">添加客户</a></li>
+            <li><a href="{:url('product/add')}">添加产品</a></li>
+            <li><a href="{:url('quote/create')}">创建报价单</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

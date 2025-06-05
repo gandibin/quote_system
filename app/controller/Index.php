@@ -11,8 +11,15 @@ class Index extends BaseController
 
     {
 
-        phpinfo();
-        return '<style>*{ padding: 0; margin: 0; }</style><iframe src="https://www.thinkphp.cn/welcome?version=' . \think\facade\App::version() . '" width="100%" height="100%" frameborder="0" scrolling="auto"></iframe>';
+        $client_count = Client::count();
+        $product_count = Product::count();
+        $quote_count = Quote::count();
+
+        return view('index/index', [
+            'client_count' => $client_count,
+            'product_count' => $product_count,
+            'quote_count'  => $quote_count
+        ]);
     }
 
     public function hello($name = 'ThinkPHP8')
