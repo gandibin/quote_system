@@ -6,6 +6,7 @@ use app\BaseController;
 use think\facade\Session;
 use app\model\Client;  
 use app\model\Product;
+use app\model\Quotation;
 
 class Index extends BaseController
 {
