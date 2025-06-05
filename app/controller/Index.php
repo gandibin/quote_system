@@ -4,6 +4,8 @@ namespace app\controller;
 
 use app\BaseController;
 use think\facade\Session;
+use app\model\Client;  
+use app\model\Product;
 
 class Index extends BaseController
 {
