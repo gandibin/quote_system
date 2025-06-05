@@ -1,10 +1,9 @@
 <?php
 namespace app\controller;
 
-use think\Controller;
 use app\model\Quotation;
 
-class QuotationController extends Controller
+class QuotationController
 {
     public function index()
     {
@@ -19,7 +18,7 @@ class QuotationController extends Controller
 
     public function save()
     {
-        $data = input('post.');
+        $data = request()->post(); // v8 推荐用 request() 辅助函数
         $quotation = new Quotation();
         $quotation->save($data);
         return redirect('quotation_controller/index');
