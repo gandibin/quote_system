@@ -24,7 +24,26 @@ class Index extends BaseController
             'quote_count'  => $quote_count
         ]);
     }
+    // ✅ 顶部 head 区域
+    public function head()
+    {
+        return view('index/head');
+    }
 
+    // ✅ 左侧导航栏区域
+    public function left()
+    {
+        return view('index/left');
+    }
+
+    // ✅ 主区域默认内容页
+    public function main()
+    {
+        return view('index/main');
+    }
+
+
+    
     public function hello($name = 'ThinkPHP8')
     {
         return 'hello,' . $name;
