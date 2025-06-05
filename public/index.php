@@ -18,7 +18,7 @@ use think\App;
 require __DIR__ . '/../vendor/autoload.php';
 
 // 执行HTTP应用并响应
-$http = (new App())->http;
+$http = (new App())->debug(true)->http;
 
 $response = $http->run();
 
