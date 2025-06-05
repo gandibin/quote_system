@@ -4,7 +4,7 @@ namespace app\controller;
 use think\Controller;
 use app\model\Quotation;
 
-class Quotation extends Controller
+class QuotationController extends Controller
 {
     public function index()
     {
@@ -22,6 +22,6 @@ class Quotation extends Controller
         $data = input('post.');
         $quotation = new Quotation();
         $quotation->save($data);
-        return redirect('quotation/index');
+        return redirect('quotation_controller/index');
     }
 }
