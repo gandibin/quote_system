@@ -2,31 +2,66 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>报价管理系统</title>
+    <title>报价管理系统后台</title>
     <style>
-        .container { display: flex; height: calc(100vh - 60px); }
-        .sidebar { width: 200px; background-color: #34495e; color: white; }
-        .main { flex: 1; background-color: #ecf0f1; }
-        iframe { width: 100%; height: 100%; border: none; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .header {
+            height: 60px;
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            height: calc(100% - 60px);
+        }
+        .left {
+            width: 200px;
+            background-color: #ecf0f1;
+            border-right: 1px solid #bdc3c7;
+        }
+        .left a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+        }
+        .left a:hover {
+            background-color: #bdc3c7;
+        }
+        .main {
+            flex: 1;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
+
     <div class="header">
-        {include file="index/head"}
+        <!-- 包含 head.html 的内容 -->
+        <?php include 'head.html'; ?>
     </div>
+
     <div class="container">
-        <div class="sidebar">
-            {include file="index/left"}
+        <div class="left">
+            <!-- 包含 left.html 的内容 -->
+            <?php include 'left.html'; ?>
         </div>
+
         <div class="main">
-            <iframe id="mainFrame" src="{:url('index/main')}"></iframe>
+            <!-- 用 iframe 显示 main.html 的内容或点击导航后动态加载 -->
+            <iframe id="mainFrame" src="main.html"></iframe>
         </div>
     </div>
 
-    <script>
-        function loadPage(url) {
-            document.getElementById('mainFrame').src = url;
-        }
-    </script>
 </body>
 </html>
